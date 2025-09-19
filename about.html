@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - Carel Marso</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      background: white;
+    }
+
+    main {
+      padding: 140px 20px 60px;
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 16px;
+      line-height: 1.9;
+      font-family: 'Nunito Sans', sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        padding: 120px 20px 40px;
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header style="background: transparent;">
+    <a href="index.html" class="logo">Carel Marso</a>
+    <button class="menu-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <nav class="nav-links" id="site-nav">
+      <a href="painting.html">Painting</a>
+      <a href="paper.html">Paper</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://www.instagram.com/careliscool/" target="_blank" aria-label="Instagram">
+        <img src="images/instagram.png" alt="Instagram" style="height: 16px; vertical-align: middle;">
+      </a>
+    </nav>
+  </header>
+  <main>
+    <p>Carel Marso is an artist based in Beirut, Lebanon. Her practice is rooted in illustration and painting, where she explores the intricate connections between emotion and the dichotomy of familiarity. Her work visualizes the intangible aspects of human experience, navigating the delicate space between the concrete and the fantastical. Through landscape, form, and mood, she constructs a unique reality that bridges the gap between what is observable and imagined.</p>
+    <br />
+    <p>Looking at Carel's work is to step into a moment of stillness, a suspended breath between reality and imagination. Her restrained yet intricate visual language, rich with muted tones and organic forms, evokes a quiet tension that gently invites reflection. Each composition feels like a refuge, a calm amidst complexity, where emotion is not dramatized but carefully distilled into form, color, and gesture.</p>
+  </main>
+    <footer>
+    &copy; Carel Marso 2025
+  </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var header = document.querySelector('header');
+  var btn = document.querySelector('.menu-toggle');
+  if(!header || !btn) return;
+  btn.addEventListener('click', function(){
+    var open = header.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keyup', function(e){
+    if(e.key==='Escape'){ header.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+  });
+});
+</script>
+
+</body>
+</html>
