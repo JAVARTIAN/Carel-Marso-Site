@@ -100,7 +100,8 @@
   <header style="background: transparent;">
     <a href="index.html" class="logo">Carel Marso</a>
     <button class="menu-toggle" aria-label="Menu" aria-expanded="false">☰</button>
-    <nav class="nav-links" id="site-nav">
+    \1
+      <button class="menu-close" aria-label="Close menu">×</button>
       <a href="painting.html">Painting</a>
       <a href="paper.html">Paper</a>
       <a href="about.html">About</a>
@@ -132,20 +133,41 @@
     &copy; Carel Marso 2025
   </footer>
 
+
+
 <script>
 document.addEventListener('DOMContentLoaded', function(){
   var header = document.querySelector('header');
   var btn = document.querySelector('.menu-toggle');
+  var closeBtn = document.querySelector('.menu-close');
+  var links = document.querySelectorAll('.nav-links a');
   if(!header || !btn) return;
+
+  function setOpen(open){
+    header.classList.toggle('open', open);
+    document.body.classList.toggle('menu-open', open);
+    if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
   btn.addEventListener('click', function(){
-    var open = header.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    setOpen(!header.classList.contains('open'));
   });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function(){ setOpen(false); });
+  }
+
+  links.forEach(function(a){
+    a.addEventListener('click', function(){ setOpen(false); });
+  });
+
   document.addEventListener('keyup', function(e){
-    if(e.key==='Escape'){ header.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+    if(e.key==='Escape'){ setOpen(false); }
   });
 });
 </script>
+
+
 
 </body>
 </html>
