@@ -58,3 +58,52 @@ footer {
 }
 
 
+
+/* === Mobile-only hamburger (keeps desktop exactly the same) === */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+/* Small screens only */
+@media (max-width: 768px) {
+  /* show hamburger */
+  .menu-toggle { display: inline-block; }
+
+  /* collapse the nav into a dropdown */
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    border-top: 1px solid rgba(0,0,0,.1);
+    padding: 8px 0;
+    z-index: 1000;
+  }
+  .nav-links a {
+    display: block;
+    padding: 14px 20px;
+    margin: 0;
+    border-bottom: 1px solid rgba(0,0,0,.06);
+    font-size: 17px;
+    text-decoration: none;
+    color: #000;
+  }
+  .nav-links a:last-child { border-bottom: 0; }
+
+  /* when header has .open, reveal the menu */
+  header.open .nav-links { display: flex; }
+
+  /* keep header layout compact; don't touch desktop values */
+  header {
+    position: absolute; /* same as original */
+  }
+}
