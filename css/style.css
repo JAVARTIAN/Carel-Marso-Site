@@ -173,3 +173,29 @@ footer {
   header.open .nav-links { display: flex; }
 }
 
+
+
+/* === Mobile fullscreen menu overlay === */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    background: #ffffff;
+    padding: 40px 24px;
+  }
+  .nav-links a {
+    font-size: 22px;
+    padding: 10px 0;
+    border: 0;
+  }
+  header.open .nav-links { display: flex; }
+  body.menu-open { overflow: hidden; }
+}
