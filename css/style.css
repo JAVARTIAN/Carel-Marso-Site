@@ -107,3 +107,41 @@ footer {
     position: absolute; /* same as original */
   }
 }
+
+/* === Mobile-only hamburger (desktop unchanged) === */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle { display: inline-block; }
+
+  /* dropdown hidden by default on mobile */
+  .nav-links { 
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    border-top: 1px solid rgba(0,0,0,.1);
+    padding: 8px 0;
+    z-index: 1000;
+  }
+  .nav-links a {
+    display: block;
+    padding: 14px 20px;
+    border-bottom: 1px solid rgba(0,0,0,.06);
+    font-size: 17px;
+    text-decoration: none;
+    color: inherit;
+  }
+  .nav-links a:last-child { border-bottom: 0; }
+  header.open .nav-links { display: flex; }
+}
