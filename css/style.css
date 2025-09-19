@@ -68,6 +68,8 @@ footer {
   line-height: 1;
   cursor: pointer;
   padding: 4px 8px;
+
+  color: #000;
 }
 
 /* Small screens only */
@@ -104,7 +106,7 @@ footer {
 
   /* keep header layout compact; don't touch desktop values */
   header {
-    position: absolute; /* same as original */
+    position: relative;
   }
 }
 
@@ -117,6 +119,8 @@ footer {
   line-height: 1;
   cursor: pointer;
   padding: 4px 8px;
+
+  color: #000;
 }
 
 @media (max-width: 768px) {
@@ -145,3 +149,27 @@ footer {
   .nav-links a:last-child { border-bottom: 0; }
   header.open .nav-links { display: flex; }
 }
+
+
+/* --- Force hamburger icon black (all states) --- */
+.menu-toggle { color: #000 !important; -webkit-text-fill-color: #000; }
+.menu-toggle:hover, .menu-toggle:focus, .menu-toggle:active { color: #000 !important; -webkit-text-fill-color: #000; }
+.menu-toggle { -webkit-tap-highlight-color: transparent; outline: none; }
+
+
+@media (max-width: 768px) {
+  header { position: absolute !important; top: 0; left: 0; right: 0; }
+  .nav-links {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0; right: 0;
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    border-top: 1px solid rgba(0,0,0,.1);
+    padding: 8px 0;
+    z-index: 1000;
+  }
+  header.open .nav-links { display: flex; }
+}
+
